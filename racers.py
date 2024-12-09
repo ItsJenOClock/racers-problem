@@ -1,7 +1,23 @@
 def non_winners(races):
     # Write your solution here!
-    pass
+    # steps:
+    # initialize empty set of 'losers'(2nd and 3rd place) that I will add to and will return the final set
+    # create another set of winners (1st place people in the dictionary)
+    # iterate through via for loop via values (tuples and skip index 0)
+    # append those to that earlier set 'losers' that will be returned
 
+    losers = set()
+    winners = set()
+    for top_three in races.values():
+        winners.add(top_three[0])
+    
+    for top_three in races.values():
+        if top_three[1] not in winners:
+            losers.add(top_three[1])
+        if top_three[2] not in winners:
+            losers.add(top_three[2])
+
+    return losers
 
 races_1 = {
     "Suzuka": ("Tsunoda", "Latifi", "Stroll"),
